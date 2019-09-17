@@ -1,4 +1,14 @@
 const TelegramBot = require('node-telegram-bot-api');
+const express = require('express')
+const expressApp = express()
+
+const port = process.env.PORT || 3000
+expressApp.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+expressApp.listen(port, () => {
+  console.log(`Listening on port ${port}`)
+})
 const request = require('request');
 
 // replace the value below with the Telegram token you receive from @BotFather
