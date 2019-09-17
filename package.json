@@ -4,8 +4,7 @@
   "description": "",
   "main": "telegramBot.js",
   "scripts": {
-    "start": "node telegramBot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node telegramBot.js"
   },
   "engines": {
     "node": "10.15.3"
