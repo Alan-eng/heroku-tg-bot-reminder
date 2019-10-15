@@ -59,7 +59,7 @@ bot.on('callback_query', query => {
 })
 
 let notes = [];
-bot.onText(/\/repeat/, (msg, match) => {
+bot.onText(/\/repeat (.+)/, (msg, match) => {
     var userId = msg.from.id;
     var text = match[1];
     var timeAdded = 600;
