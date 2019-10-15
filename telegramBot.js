@@ -68,7 +68,7 @@ bot.onText(/\/repeat (.+)/, (msg, match) => {
 
     // bot.sendMessage(userId, `Great, ${msg.from.first_name}! What exactly do you want to repeat?`);
     bot.sendMessage(
-        chatId, 
+        msg.chat.id, 
         `Great, ${msg.from.first_name}! What exactly do you want to repeat?`,
         {
         reply_markup: {
@@ -87,7 +87,8 @@ bot.onText(/\/repeat (.+)/, (msg, match) => {
                 },
             ]]
         }
-    });
+        }
+    );
 });
 
 
