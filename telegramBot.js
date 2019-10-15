@@ -57,18 +57,37 @@ bot.onText(/\/test (.+)/, (msg, match) => {
 bot.on('callback_query', query => {
     console.log(query)
 })
-// Listen for any kind of message. There are different kinds of
-// messages.
 
 let notes = [];
-bot.onText(/напомни (.+)/, (msg, match) => {
+bot.onText(/\/repeat/, (msg, match) => {
     var userId = msg.from.id;
     var text = match[1];
-    var time = 600;
+    var timeAdded = 600;
+    
+    notes.push({ 'uid': userId, 'timeAdded': timeAdded, 'text': text });
 
-    notes.push({ 'uid': userId, 'time': time, 'text': text });
-
-    bot.sendMessage(userId, `Отлично, ${msg.from.first_name}! Я обязательно напомню!`);
+    // bot.sendMessage(userId, `Great, ${msg.from.first_name}! What exactly do you want to repeat?`);
+    bot.sendMessage(
+        chatId, 
+        `Great, ${msg.from.first_name}! What exactly do you want to repeat?`,
+        {
+        reply_markup: {
+            inline_keyboard: [[
+                {
+                    text:'ᚠ Present Indefinite',
+                    callback_data: 'Present Indefinite',
+                },
+                {
+                    text:'ᚤ Present Continuous!',
+                    callback_data: 'Present Continuous',
+                },
+                {
+                    text:'ᚫ `Present Perfect',
+                    callback_data: 'Present Perfect',
+                },
+            ]]
+        }
+    });
 });
 
 
