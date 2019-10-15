@@ -29,6 +29,7 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
   // send back the matched "whatever" to the chat
   bot.sendMessage(chatId, 'хуита');
 });
+
 bot.onText(/\/test (.+)/, (msg, match) => {
     const chatId = msg.chat.id;
     const resp = 'Какую команду хотите выполнить?';
